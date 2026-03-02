@@ -12,5 +12,6 @@ import java.util.List;
 public class CreateOrderRequest {
     private List<ProductItemRequest> products;
     private List<MenuItemRequest> menus;
+    private String customerPhone;
 
 }

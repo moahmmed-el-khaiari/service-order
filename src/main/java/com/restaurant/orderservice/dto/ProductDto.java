@@ -1,6 +1,8 @@
 package com.restaurant.orderservice.dto;
 import lombok.*;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -8,12 +10,18 @@ import lombok.*;
 @Setter
 public class ProductDto {
 
+
     private Long id;
     private String name;
-    private String category; // STRING car enum distant
-    private Double price;
+    private String category;
     private Boolean available;
     private String description;
     private String imageUrl;
+
+    private List<ProductSizeDTO> sizes;
+    private List<Long> sauceIds;
+
+
+
 }
 

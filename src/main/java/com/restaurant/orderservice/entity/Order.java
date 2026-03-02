@@ -28,6 +28,8 @@ public class Order {
 
     @Column(nullable = false)
     private Double totalAmount;
+    @Column(nullable = false)
+    private String customerPhone;
 
     @OneToMany(
             mappedBy = "order",
@@ -36,4 +38,8 @@ public class Order {
             fetch = FetchType.EAGER
     )
     private List<OrderItem> items;
+    @PrePersist
+    public void prePersist() {
+        this.createdAt = LocalDateTime.now();
+    }
 }

@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import java.time.LocalDateTime;
 import java.util.List;
 public interface OrderRepository extends JpaRepository<Order, Long>{
     //  Trouver commandes par statut
@@ -15,4 +16,8 @@ public interface OrderRepository extends JpaRepository<Order, Long>{
     List<Order> findAll();
     //  Trouver commandes triées par date (desc)
     List<Order> findAllByOrderByCreatedAtDesc();
+    List<Order> findByStatusAndCreatedAtBefore(
+            OrderStatus status,
+            LocalDateTime time
+    );
 }

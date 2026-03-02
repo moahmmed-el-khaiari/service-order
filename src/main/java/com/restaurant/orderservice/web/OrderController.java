@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/v1/orders")
 @RequiredArgsConstructor
@@ -43,5 +44,14 @@ public class OrderController {
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         orderService.delete(id);
         return ResponseEntity.ok().build();
+    }
+    @PutMapping("/{id}/mark-pending")
+    public ResponseEntity<OrderResponseDTO> markAsPending(@PathVariable Long id) {
+        return ResponseEntity.ok(orderService.markAsPending(id));
+    }
+
+    @PutMapping("/{id}/mark-paid")
+    public ResponseEntity<OrderResponseDTO> markAsPaid(@PathVariable Long id) {
+        return ResponseEntity.ok(orderService.markAsPaid(id));
     }
 }

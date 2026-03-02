@@ -40,6 +40,8 @@ public class OrderMapper {
                         ? order.getStatus()
                         : null
         );
+        // 🔥 AJOUT ICI
+        dto.setCustomerPhone(order.getCustomerPhone());
 
         // 🔥 Sécuriser la liste
         List<OrderItemDTO> items = order.getItems() != null

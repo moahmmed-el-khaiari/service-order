@@ -14,4 +14,6 @@ public interface OrderService {
     OrderResponseDTO updateStatus(Long id, OrderStatus status);
 
     void delete(Long id);
+    OrderResponseDTO markAsPending(Long id);
+    OrderResponseDTO markAsPaid(Long id);
 }
